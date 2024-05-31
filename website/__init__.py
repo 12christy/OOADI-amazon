@@ -10,15 +10,12 @@ def create_database():
     db.create_all()
     print('Database Created')
 
-
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'jfdsdfj'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
 
     db.init_app(app)
-
 
     @app.errorhandler(404)
     def page_not_found(error):

@@ -1,5 +1,4 @@
 from website import (create_app)
-
 from website.views import views
 
 
