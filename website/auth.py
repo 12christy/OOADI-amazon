@@ -4,12 +4,10 @@ from .models import Customer
 from . import db
 from flask_login import login_user, login_required, logout_user
 
-
-
 auth = Blueprint('auth', __name__)
 
-@auth.route('/login', methods=['GET', 'POST'])
 
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -29,6 +27,7 @@ def login():
             flash('Account does not exist please Sign Up')
 
     return render_template('/login.html', form=form)
+
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
@@ -62,6 +61,7 @@ def sign_up():
 
     return render_template('/signup.html', form=form)
 
+
 @auth.route('/logout', methods=['GET', 'POST'])
 @login_required
 def log_out():
@@ -75,6 +75,7 @@ def profile(customer_id):
     customer = Customer.query.get(customer_id)
     print(f'Customer ID: {customer.id}')
     return render_template('profile.html', customer=customer)
+
 
 @auth.route('/change-password/<int:customer_id>', methods=['GET', 'POST'])
 @login_required
