@@ -11,6 +11,7 @@ class SignUpForm(FlaskForm):
     password2 = PasswordField('Confirm Your Password', validators=[DataRequired(), length(min=6)])
     submit = SubmitField('Sign Up')
 
+
 class LoginForm(FlaskForm):
     email = EmailField('Email', validators=[DataRequired()])
     password = PasswordField('Enter Your Password', validators=[DataRequired()])
@@ -35,3 +36,10 @@ class ShopItemsForm(FlaskForm):
     add_product = SubmitField('Add Product')
     update_product = SubmitField('Update')
 
+
+class OrderForm(FlaskForm):
+    order_status = SelectField('Order Status', choices=[('Pending', 'Pending'), ('Accepted', 'Accepted'),
+                                                        ('Out for delivery', 'Out for delivery'),
+                                                        ('Delivered', 'Delivered'), ('Canceled', 'Canceled')])
+
+    update = SubmitField('Update Status')
