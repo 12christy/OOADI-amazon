@@ -53,9 +53,7 @@ class Cart(db.Model):
     customer_link = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
     product_link = db.Column(db.Integer, db.ForeignKey('product.id'), nullable=False)
 
-
     # customer product
-
 
     def __str__(self):
         return '<Cart %r>' % self.id
@@ -75,14 +73,3 @@ class Order(db.Model):
 
     def __str__(self):
         return '<Order %r>' % self.id
-
-
-
-
-
-
-
-
-
-
-
